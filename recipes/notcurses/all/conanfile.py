@@ -13,8 +13,11 @@ class NotcursesConan(ConanFile):
     options = {"shared": [True, False]}
     default_options = {"shared": False}
     generators = "cmake", "pkg_config"
-
     _cmake = None
+
+    @property
+    def _source_subfolder(self):
+        return "source_subfolder"
 
     def requirements(self):
         self.requires("openimageio/2.2.7.0")
