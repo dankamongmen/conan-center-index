@@ -49,7 +49,7 @@ class NotcursesConan(ConanFile):
         self._cmake.definitions["USE_QRCODEGEN"] = "OFF"
         self._cmake.definitions["USE_READLINE"] = "OFF"
         self._cmake.definitions["USE_STATIC"] = not self.options.shared
-        self._cmake.configure(source_folder="notcurses-" + self.version)
+        self._cmake.configure(source_folder=self._source_subfolder)
         return self._cmake
 
     def package_info(self):
